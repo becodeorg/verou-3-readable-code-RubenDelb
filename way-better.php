@@ -7,19 +7,6 @@ $clients = [
     ['name' => 'Ruben', 'pizzaType' => "Calzone", 'address' => 'Brugas'],
 ];
 
-function orderPizza($clients) {
-    foreach ($clients as $client) {
-        $person = $client["name"];
-        $pizzaType = $client["pizzaType"];
-        $address = $client["address"];
-        $price = calculatePrice($pizzaType);
-        echo "Creating new order... <br> A {$pizzaType} pizza should be sent to {$person} <br> The address: {$address}. <br>
-        The bill is € {$price}. <br> Order finished.<br><br>";
-    }
-}
-
-orderPizza($clients);
-
 function calculatePrice($pizzaType) {
     if ($pizzaType == 'Marguerita') {
         $price = 5;
@@ -32,3 +19,16 @@ function calculatePrice($pizzaType) {
     }
     return $price;
 }
+
+function orderPizza($clients) {
+    foreach ($clients as $client) {
+        $clientName = $client["name"];
+        $pizzaType = $client["pizzaType"];
+        $address = $client["address"];
+        $price = calculatePrice($pizzaType);
+        echo "Creating new order... <br> A {$pizzaType} pizza should be sent to {$clientName} <br> The address: {$address}. <br>
+        The bill is € {$price}. <br> Order finished.<br><br>";
+    }
+}
+
+orderPizza($clients);
